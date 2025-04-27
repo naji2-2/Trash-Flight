@@ -9,11 +9,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveTo = new Vector3(moveSpeed * Time.deltaTime, 0, 0);
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.position -= moveTo;
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.position += moveTo;
-        }
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3(mousePos.x, transform.position.y, transform.position.z);
     }
 }
