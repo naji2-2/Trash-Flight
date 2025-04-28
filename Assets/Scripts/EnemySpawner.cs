@@ -9,14 +9,33 @@ public class EnemySpawner : MonoBehaviour
 
     private float[] arrPosX = { -2.2f, -1.1f, 0f, 1.1f, 2.2f };
 
+    [SerializeField]
+    private float spawnInterval;
+
     void Start()
     {
-        foreach (float posX in arrPosX)
+        StartEnemyRoutine();
+    }
+
+    void StartEnemyRoutine()
+    {
+        StartCoroutine("EnemyRoutine");
+    }
+
+    IEnumerator EnemyRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+
+        while (true)
         {
-            int index = Random.Range(0, enemies.Length);
-            SpawnEnemy(posX, index);
+            foreach (float posX in arrPosX)
+            {
+                int index = Random.Range(0, enemies.Length);
+                SpawnEnemy(posX, index);
+            }
+
+            yield return new WaitForSeconds(spawnInterval);
         }
-        
     }
 
     void SpawnEnemy(float posX, int index)
