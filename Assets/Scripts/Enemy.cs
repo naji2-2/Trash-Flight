@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private float moveSpeed = 5f;
 
     private float minY = -7f;
+
+    [SerializeField]
     private float hp = 1f;
 
     public void SetMoveSpeed(float moveSpeed)
