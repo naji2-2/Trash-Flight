@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
 
     private float minY = -7;
 
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
+
     void Update()
     {
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;

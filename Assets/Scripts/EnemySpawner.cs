@@ -14,10 +14,10 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartEnemyRoutine();
+        StartEnemyRRoutine();
     }
 
-    void StartEnemyRoutine()
+    void StartEnemyRRoutine()
     {
         StartCoroutine("EnemyRoutine");
     }
@@ -26,22 +26,45 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
+        float moveSpeed = 5f;
+        int spawnCount = 0;
+        int enemyIndex = 0;
+
         while (true)
         {
             foreach (float posX in arrPosX)
             {
-                int index = Random.Range(0, enemies.Length);
-                SpawnEnemy(posX, index);
+                SpawnEnemy(posX, enemyIndex, moveSpeed);
             }
 
-            yield return new WaitForSeconds(spawnInterval);
+            spawnCount++;
+            if (spawnCount % 10 == 0)
+            {
+                enemyIndex++;
+                moveSpeed += 2;
+            }
+
+                yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    void SpawnEnemy(float posX, int index)
+    void SpawnEnemy(float posX, int index, float moveSpeed)
     {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
-    }
 
+        // 20%의 확률로 한 단계 높은 적이 나오록함
+        if (Random.Range(0, 5) == 0)
+        {
+            index++;
+        }
+
+        if (index >= enemies.Length)
+        {
+            index -= enemies.Length - 1;
+        }
+
+        GameObject enmeyObject = Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        Enemy enemy = enmeyObject.GetComponent<Enemy>();
+        enemy.SetMoveSpeed(moveSpeed);
+    }
 }
