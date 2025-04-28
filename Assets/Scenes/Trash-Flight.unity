@@ -119,6 +119,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &199971429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199971431}
+  - component: {fileID: 199971430}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &199971430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199971429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd3cf9918936ac41a1a297688da357d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 5956532478090377500, guid: bca44fd274092bc42bb0fc6d31853ef3, type: 3}
+  - {fileID: 5956532478090377500, guid: 5d3f96b9d6ce35b45ba4f869d8bcf16c, type: 3}
+  - {fileID: 5956532478090377500, guid: a5a63df4411032d40bea9534b39ea0bd, type: 3}
+  - {fileID: 5956532478090377500, guid: 28bb751929c4e5b4686836f5fc563f06, type: 3}
+  - {fileID: 5956532478090377500, guid: d9c7a687b169c4d48a30572911fc73b1, type: 3}
+  - {fileID: 5956532478090377500, guid: 7a1c4ac152945d14f9433fa5ecb2dfbf, type: 3}
+  - {fileID: 5956532478090377500, guid: fef3c4909255d7746a93f2a6699d763c, type: 3}
+--- !u!4 &199971431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199971429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231432339
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,3 +898,4 @@ SceneRoots:
   - {fileID: 1664746386}
   - {fileID: 231432341}
   - {fileID: 1219193722}
+  - {fileID: 199971431}
