@@ -201,6 +201,7 @@ MonoBehaviour:
   - {fileID: 5956532478090377500, guid: d9c7a687b169c4d48a30572911fc73b1, type: 3}
   - {fileID: 5956532478090377500, guid: 7a1c4ac152945d14f9433fa5ecb2dfbf, type: 3}
   - {fileID: 5956532478090377500, guid: fef3c4909255d7746a93f2a6699d763c, type: 3}
+  boss: {fileID: 5956532478090377500, guid: 004ad6bf8c523eb47ac00b51a9f72791, type: 3}
   spawnInterval: 1.5
 --- !u!4 &199971431
 Transform:
@@ -907,7 +908,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  weapon: {fileID: 2525495031371494381, guid: 5e721bfec2e05974cb318dfe16b32f12, type: 3}
+  weapons:
+  - {fileID: 2525495031371494381, guid: 5e721bfec2e05974cb318dfe16b32f12, type: 3}
+  - {fileID: 2525495031371494381, guid: 4175785e99747254ab90bddf7510dde4, type: 3}
+  - {fileID: 2525495031371494381, guid: e9e23dcbe88c98a46b51956d83608118, type: 3}
   shootTransform: {fileID: 2102054782}
   shootInterval: 0.1
 --- !u!95 &1664746384
