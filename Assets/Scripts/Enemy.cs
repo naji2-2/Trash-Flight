@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5f;
 
-    private float minY = -7;
+    private float minY = -7f;
+    private float hp = 1f;
 
     public void SetMoveSpeed(float moveSpeed)
     {
@@ -21,6 +22,20 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < minY)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
+            Weapon weapon = other.gameObject.GetComponent<Weapon>();
+            hp -= weapon.damage;
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+            Destroy(other.gameObject);
         }
     }
 }
