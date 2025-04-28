@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField]
-    private GameObject weapon;
+    private GameObject[] weapons;
+    private int weaponIndex = 0;
 
     [SerializeField]
     private Transform shootTransform;
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
         // 미사일의 발사 간격을 조정
         if (Time.time - lastShootTime > shootInterval)
         {
-            Instantiate(weapon, shootTransform.position, Quaternion.identity);
+            Instantiate(weapons[weaponIndex], shootTransform.position, Quaternion.identity);
             lastShootTime = Time.time;
         }
 
@@ -49,6 +50,16 @@ public class Player : MonoBehaviour
         {
             GameManager.instance.IncreaseCoin();
             Destroy(other.gameObject);
+        }
+    }
+
+    public void Upgrade()
+    {
+        weaponIndex += 1;
+
+        if (weaponIndex >= weapons.Length)
+        {
+            weaponIndex = weapons.Length - 1;
         }
     }
 }
