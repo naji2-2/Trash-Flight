@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI text;
+
+    [SerializeField]
+    private GameObject gameOverPanel;
+
     private int coin = 0;
 
     [HideInInspector]
@@ -27,7 +32,7 @@ public class GameManager : MonoBehaviour
         coin++;
         text.SetText(coin.ToString());
 
-        if (coin % 10 == 0)
+        if (coin % 30 == 0)
         {
             Player player = FindObjectOfType<Player>();
             if (player != null)
@@ -46,5 +51,18 @@ public class GameManager : MonoBehaviour
         {
             enemySpawner.StopEnemyRoutine();
         }
+
+        // 특정 시간을 기다린 뒤 메소드가 실행 되도록함
+        Invoke("ShowGameOverPanel", 1f);
+    }
+
+    void ShowGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Trash-Flight");
     }
 }
