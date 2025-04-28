@@ -17,12 +17,17 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartEnemyRRoutine();
+        StartEnemyRoutine();
     }
 
-    void StartEnemyRRoutine()
+    void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
+    }
+
+    public void StopEnemyRoutine()
+    {
+        StopCoroutine("EnemyRoutine");
     }
 
     IEnumerator EnemyRoutine()

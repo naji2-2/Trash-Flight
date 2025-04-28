@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // 미사일에 맞은 경우
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Weapon")
@@ -38,6 +39,10 @@ public class Enemy : MonoBehaviour
             hp -= weapon.damage;
             if (hp <= 0)
             {
+                if (gameObject.tag == "Boss")
+                {
+                    GameManager.instance.SetGameOver();
+                }
                 Destroy(gameObject);
                 Instantiate(coin, transform.position, Quaternion.identity);
             }
